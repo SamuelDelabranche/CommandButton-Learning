@@ -1,0 +1,47 @@
+﻿<Application x:Class="CommandButton.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CommandButton">
+    <Application.Resources>
+        
+        <Style TargetType="WrapPanel">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="15 20" />
+            <Setter Property="Padding"
+                    Value="10" />
+        </Style>
+
+        <Style x:Key="Formulaire" TargetType="Border">
+            <Setter Property="Padding"
+                    Value="50 50" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="18" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Margin"
+                    Value="0 0 0 10" />
+        </Style>
+        
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="TextBlock.TextAlignment"
+                    Value="Center" />
+        </Style>
+
+    </Application.Resources>
+</Application>

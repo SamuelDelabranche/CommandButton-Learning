@@ -1,0 +1,66 @@
+﻿<Window x:Class="CommandButton.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandButton"
+        mc:Ignorable="d"
+        Title="Button Command"
+        Height="450"
+        Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border BorderBrush="Black"
+                BorderThickness="1">
+            <WrapPanel>
+                <Button Content="Ajouter" Command="{Binding AddCommand}"/>
+                <Button Content="Supprimer" Command="{Binding DeleteCommand}"/>
+            </WrapPanel>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="1"
+                    Style="{StaticResource Formulaire}"
+                    BorderBrush="Black"
+                    BorderThickness="1 0 0 0">
+                <StackPanel>
+                    <Label Content="Nom" />
+                    <TextBox Text="{Binding SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="SerialNumber" />
+                    <TextBox Text="{Binding SelectedItem.SerialNumber, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label Content="Quantity" />
+                    <TextBox Text="{Binding SelectedItem.Quantity, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Border>
+
+            <DataGrid ItemsSource="{Binding Items}"
+                      SelectedItem="{Binding SelectedItem}"
+                      Grid.Column="0"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nom"
+                                        Binding="{Binding Name}"
+                                        Width="*" />
+                    <DataGridTextColumn Header="Numéro de série"
+                                        Binding="{Binding SerialNumber}"
+                                        Width="*" />
+                    <DataGridTextColumn Header="Quantité"
+                                        Binding="{Binding Quantity}"
+                                        Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
